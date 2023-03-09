@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 namespace BulletinBoard.Application.Interfaces
 {
-    public interface IBulletinBoardDbContextcs
+    public interface IBulletinBoardDbContext
     {
         DbSet<Ad> Ads { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
