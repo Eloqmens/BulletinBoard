@@ -7,7 +7,7 @@ using BulletinBoard.Domain;
 namespace BulletinBoard.Application.BulletinBoard.Commands.UpdateCommand
 {
     public class UpdateAdCommandHandler
-        : IRequestHandler<UpdateAdCommand>
+        : IRequestHandler<UpdateAdCommand, Unit>
     {
 
         private readonly IBulletinBoardDbContext _dbContext;
@@ -30,7 +30,7 @@ namespace BulletinBoard.Application.BulletinBoard.Commands.UpdateCommand
             entity.Price = request.Price;
 
             await _dbContext.SaveChangesAsync(cancellationToken);
-           
+
             return Unit.Value;
         }
 

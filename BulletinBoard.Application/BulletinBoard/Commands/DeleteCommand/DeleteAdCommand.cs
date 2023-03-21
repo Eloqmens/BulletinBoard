@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
 
 namespace BulletinBoard.Application.BulletinBoard.Commands.DeleteCommand
 {
-    internal class DeleteAdCommand
+    public class DeleteAdCommand : IRequest<Unit>
     {
+        public Guid UserId { get; set; }
+        public Guid Id { get; set; }
     }
 }

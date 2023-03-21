@@ -16,8 +16,4 @@
     <ProjectReference Include="..\BulletinBoard.Domain\BulletinBoard.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Новая папка\" />
-  </ItemGroup>
-
 </Project>
