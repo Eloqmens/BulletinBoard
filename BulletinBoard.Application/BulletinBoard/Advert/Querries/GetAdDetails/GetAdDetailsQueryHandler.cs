@@ -5,7 +5,7 @@ using BulletinBoard.Domain;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace BulletinBoard.Application.BulletinBoard.Querries.GetAdDetails
+namespace BulletinBoard.Application.BulletinBoard.Advert.Querries.GetAdDetails
 {
     public class GetAdDetailsQueryHandler :
         IRequestHandler<GetAdDetailsQuery, AdDetailsVm>
@@ -26,7 +26,7 @@ namespace BulletinBoard.Application.BulletinBoard.Querries.GetAdDetails
 
             if (entity == null || entity.UserId != request.UserId)
             {
-                throw new NotFoundException(nameof(Ad), request.Id);
+                throw new NotFoundException(nameof(Advert), request.Id);
             }
 
             return _mapper.Map<AdDetailsVm>(entity);

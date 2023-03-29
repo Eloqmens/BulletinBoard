@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace BulletinBoard.Application.BulletinBoard.Commands.UpdateCommand
+namespace BulletinBoard.Application.BulletinBoard.Advert.Commands.UpdateCommand
 {
     public class UpdateAdCommand : IRequest<Unit>
     {

@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BulletinBoard.Application.BulletinBoard.Querries.GetAdList
+namespace BulletinBoard.Application.BulletinBoard.Ad.Querries.GetAdDetails
 {
-    public class GetAdListQuery : IRequest<AdListVm>
+    public class GetAdDetailsQuery : IRequest<AdDetailsVm>
     {
         public Guid UserId { get; set; }
-        
+        public Guid Id { get; set; }
     }
 }

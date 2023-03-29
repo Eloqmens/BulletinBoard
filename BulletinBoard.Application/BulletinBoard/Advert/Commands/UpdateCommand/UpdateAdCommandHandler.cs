@@ -4,7 +4,7 @@ using MediatR;
 using BulletinBoard.Application.Common.Exceptions;
 using BulletinBoard.Domain;
 
-namespace BulletinBoard.Application.BulletinBoard.Commands.UpdateCommand
+namespace BulletinBoard.Application.BulletinBoard.Advert.Commands.UpdateCommand
 {
     public class UpdateAdCommandHandler
         : IRequestHandler<UpdateAdCommand, Unit>
@@ -22,7 +22,7 @@ namespace BulletinBoard.Application.BulletinBoard.Commands.UpdateCommand
 
             if (entity == null || entity.UserId != request.UserId)
             {
-                throw new NotFoundException(nameof(Ad), request.Id);
+                throw new NotFoundException(nameof(Advert), request.Id);
             }
 
             entity.Name = request.Name;

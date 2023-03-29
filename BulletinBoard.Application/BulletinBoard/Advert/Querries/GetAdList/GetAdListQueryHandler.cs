@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using BulletinBoard.Application.BulletinBoard.Querries.GetAdList;
 using BulletinBoard.Application.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace BulletinBoard.Application.BulletinBoard.Querries.GetAdList
+namespace BulletinBoard.Application.BulletinBoard.Advert.Querries.GetAdList
 {
     public class GetAdListQueryHandler
         : IRequestHandler<GetAdListQuery, AdListVm>

@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace BulletinBoard.Domain
 {
-    public class Favorites
+    internal class User
     {
-        public Guid Id { get; set; }
-
     }
 }

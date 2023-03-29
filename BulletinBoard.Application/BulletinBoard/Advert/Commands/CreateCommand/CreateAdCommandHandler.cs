@@ -1,8 +1,9 @@
-﻿using BulletinBoard.Application.Interfaces;
+﻿using BulletinBoard.Application.BulletinBoard.Advert.Commands.CreateCommand;
+using BulletinBoard.Application.Interfaces;
 using BulletinBoard.Domain;
 using MediatR;
 
-namespace BulletinBoard.Application.BulletinBoard.Commands.CreateCommand
+namespace BulletinBoard.Application.BulletinBoard.Advert.Commands.CreateCommand
 {
     public class CreateAdCommandHandler
         : IRequestHandler<CreateAdCommand, Guid> 

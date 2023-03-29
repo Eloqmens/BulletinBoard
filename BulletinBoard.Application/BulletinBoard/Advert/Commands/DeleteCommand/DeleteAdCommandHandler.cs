@@ -3,7 +3,7 @@ using BulletinBoard.Application.Interfaces;
 using BulletinBoard.Domain;
 using MediatR;
 
-namespace BulletinBoard.Application.BulletinBoard.Commands.DeleteCommand
+namespace BulletinBoard.Application.BulletinBoard.Advert.Commands.DeleteCommand
 {
     public class DeleteAdCommandHandler
         : IRequestHandler<DeleteAdCommand, Unit>
@@ -21,7 +21,7 @@ namespace BulletinBoard.Application.BulletinBoard.Commands.DeleteCommand
 
             if (entity == null || entity.Id != request.UserId)
             {
-                throw new NotFoundException(nameof(Ad), request.Id);
+                throw new NotFoundException(nameof(Advert), request.Id);
             }
 
             _dbContext.Ads.Remove(entity);

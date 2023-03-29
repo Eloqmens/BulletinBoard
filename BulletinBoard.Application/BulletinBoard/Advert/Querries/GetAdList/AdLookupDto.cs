@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BulletinBoard.Application.BulletinBoard.Querries.GetAdList
+namespace BulletinBoard.Application.BulletinBoard.Advert.Querries.GetAdList
 {
     public class AdLookupDto : IMapWith<Ad>
     {

@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace BulletinBoard.Application.BulletinBoard.Commands.DeleteCommand
+namespace BulletinBoard.Application.BulletinBoard.Advert.Commands.DeleteCommand
 {
     public class DeleteAdCommand : IRequest<Unit>
     {

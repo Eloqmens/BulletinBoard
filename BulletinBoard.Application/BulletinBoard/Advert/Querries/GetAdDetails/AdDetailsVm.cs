@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BulletinBoard.Application.BulletinBoard.Querries.GetAdDetails
+namespace BulletinBoard.Application.BulletinBoard.Advert.Querries.GetAdDetails
 {
     public class AdDetailsVm : IMapWith<Ad>
     {
@@ -19,7 +19,7 @@ namespace BulletinBoard.Application.BulletinBoard.Querries.GetAdDetails
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Ad, AdDetailsVm>()
+            profile.CreateMap<Advert, AdDetailsVm>()
                 .ForMember(adVm => adVm.Id,
                 opt => opt.MapFrom(ad => ad.Id))
                 .ForMember(adVm => adVm.Name,
