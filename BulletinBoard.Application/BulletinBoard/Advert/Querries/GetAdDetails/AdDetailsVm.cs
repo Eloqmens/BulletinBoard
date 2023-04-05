@@ -19,7 +19,7 @@ namespace BulletinBoard.Application.BulletinBoard.Advert.Querries.GetAdDetails
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Advert, AdDetailsVm>()
+            profile.CreateMap<Ad, AdDetailsVm>()
                 .ForMember(adVm => adVm.Id,
                 opt => opt.MapFrom(ad => ad.Id))
                 .ForMember(adVm => adVm.Name,

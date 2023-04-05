@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BulletinBoard.Application.BulletinBoard.Ad.Querries.GetAdDetails
+namespace BulletinBoard.Application.BulletinBoard.Advert.Querries.GetAdDetails
 {
     public class GetAdDetailsQuery : IRequest<AdDetailsVm>
     {
