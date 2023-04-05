@@ -13,6 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
 
 // Добовление Сервисов
+builder.Services.AddSwaggerGen();
 builder.Services.AddApplication();
 builder.Services.AddPersistence(configuration);
 builder.Services.AddControllers();
@@ -50,11 +51,11 @@ using (var scope = app.Services.CreateScope())
 
     }
 }
-
+app.UseSwagger();
+app.UseSwaggerUI();
 app.UseRouting();
 app.UseHttpsRedirection();
 app.UseCors("AllowAll");
-
 app.UseEndpoints(endpoints => 
 {
     endpoints.MapControllers();

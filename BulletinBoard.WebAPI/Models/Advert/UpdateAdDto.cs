@@ -13,7 +13,7 @@ namespace BulletinBoard.WebAPI.Models.Advert
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<CreateAdDto, CreateAdCommand>()
+            profile.CreateMap<UpdateAdDto, UpdateAdCommand>()
                 .ForMember(adCommand => adCommand.Name,
                 opt => opt.MapFrom(adDto => adDto.Name))
                 .ForMember(adCommand => adCommand.Description,

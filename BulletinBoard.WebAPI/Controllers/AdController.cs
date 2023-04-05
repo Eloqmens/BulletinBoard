@@ -5,7 +5,7 @@ using BulletinBoard.Application.BulletinBoard.Advert.Commands.UpdateCommand;
 using BulletinBoard.Application.BulletinBoard.Advert.Querries.GetAdDetails;
 using BulletinBoard.Application.BulletinBoard.Advert.Querries.GetAdList;
 using BulletinBoard.Application.BulletinBoard.Querries.GetAdList;
-using BulletinBoard.WebAPI.Models;
+using BulletinBoard.WebAPI.Models.Advert;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BulletinBoard.WebAPI.Controllers

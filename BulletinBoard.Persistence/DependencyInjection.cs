@@ -13,7 +13,7 @@ namespace BulletinBoard.Persistence
             var connectionString = configuration["DbContection"];
             services.AddDbContext<BulletinBoardDbContext>(options =>
             {
-                options.UseSqlite(connectionString);
+                options.UseSqlServer(connectionString);
             });
             services.AddScoped<IBulletinBoardDbContext>(provider =>
                 provider.GetService<BulletinBoardDbContext>());
