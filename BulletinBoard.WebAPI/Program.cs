@@ -2,6 +2,7 @@ using BulletinBoard.Application;
 using BulletinBoard.Application.Common.Mappings;
 using BulletinBoard.Application.Interfaces;
 using BulletinBoard.Persistence;
+using BulletinBoard.WebAPI.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
@@ -51,6 +52,8 @@ using (var scope = app.Services.CreateScope())
 
     }
 }
+
+app.UseCustomExceptionHandler();
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseRouting();
