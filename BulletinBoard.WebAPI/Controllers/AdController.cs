@@ -6,6 +6,7 @@ using BulletinBoard.Application.BulletinBoard.Advert.Querries.GetAdDetails;
 using BulletinBoard.Application.BulletinBoard.Advert.Querries.GetAdList;
 using BulletinBoard.Application.BulletinBoard.Querries.GetAdList;
 using BulletinBoard.WebAPI.Models.Advert;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BulletinBoard.WebAPI.Controllers
@@ -17,6 +18,7 @@ namespace BulletinBoard.WebAPI.Controllers
         public AdController(IMapper mapper) => _mapper = mapper;
 
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<AdListVm>> GetAll()
         {
             var query = new GetAdListQuery
@@ -28,6 +30,7 @@ namespace BulletinBoard.WebAPI.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<AdDetailsVm>> Get(Guid id)
         {
             var query = new GetAdDetailsQuery
@@ -40,6 +43,7 @@ namespace BulletinBoard.WebAPI.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<Guid>> Create([FromBody] CreateAdDto createAdDto)
         {
             var command = _mapper.Map<CreateAdCommand>(createAdDto);
@@ -49,6 +53,7 @@ namespace BulletinBoard.WebAPI.Controllers
         }
 
         [HttpPut]
+        [Authorize]
         public async Task<IActionResult> Update([FromBody] UpdateAdDto updateAdDto)
         {
             var command = _mapper.Map<UpdateAdCommand>(updateAdDto);
@@ -58,6 +63,7 @@ namespace BulletinBoard.WebAPI.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> Delete(Guid id)
         {
             var command = new DeleteAdCommand 
