@@ -2,7 +2,7 @@
 {
     public class DbIntializer 
     {
-        public static void Intialze(BulletinBoardDbContext context)
+        public static void Intialize(BulletinBoardDbContext context)
         {
             context.Database.EnsureCreated();
         }
