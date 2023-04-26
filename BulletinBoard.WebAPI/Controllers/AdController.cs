@@ -11,6 +11,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BulletinBoard.WebAPI.Controllers
 {
+    [Produces("application/json")]
+    [Route("api/[controller]")]
     public class AdController : BaseController
     {
         private readonly IMapper _mapper;
@@ -19,6 +21,8 @@ namespace BulletinBoard.WebAPI.Controllers
 
         [HttpGet]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult<AdListVm>> GetAll()
         {
             var query = new GetAdListQuery
@@ -31,6 +35,8 @@ namespace BulletinBoard.WebAPI.Controllers
 
         [HttpGet("{id}")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult<AdDetailsVm>> Get(Guid id)
         {
             var query = new GetAdDetailsQuery
@@ -44,6 +50,8 @@ namespace BulletinBoard.WebAPI.Controllers
 
         [HttpPost]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult<Guid>> Create([FromBody] CreateAdDto createAdDto)
         {
             var command = _mapper.Map<CreateAdCommand>(createAdDto);
@@ -54,6 +62,8 @@ namespace BulletinBoard.WebAPI.Controllers
 
         [HttpPut]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<IActionResult> Update([FromBody] UpdateAdDto updateAdDto)
         {
             var command = _mapper.Map<UpdateAdCommand>(updateAdDto);
@@ -64,6 +74,8 @@ namespace BulletinBoard.WebAPI.Controllers
 
         [HttpDelete("{id}")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<IActionResult> Delete(Guid id)
         {
             var command = new DeleteAdCommand 

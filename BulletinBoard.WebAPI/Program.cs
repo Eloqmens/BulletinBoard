@@ -2,10 +2,14 @@ using BulletinBoard.Application;
 using BulletinBoard.Application.Common.Mappings;
 using BulletinBoard.Application.Interfaces;
 using BulletinBoard.Persistence;
+using BulletinBoard.WebAPI;
 using BulletinBoard.WebAPI.Middleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,7 +26,13 @@ builder.Services.AddAutoMapper(config =>
     config.AddProfile(new AssemblyMappingProfile(typeof(IBulletinBoardDbContext).Assembly));
 });
 
+builder.Services.AddVersionedApiExplorer(options =>
+                options.GroupNameFormat = "'v'VVV");
+builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>,
+        ConfigureSwaggerOptions>();
 builder.Services.AddSwaggerGen();
+builder.Services.AddApiVersioning();
+
 builder.Services.AddApplication();
 builder.Services.AddPersistence(configuration);
 builder.Services.AddControllers();
@@ -69,12 +79,17 @@ using (var scope = app.Services.CreateScope())
 
 app.UseCustomExceptionHandler();
 app.UseSwagger();
-app.UseSwaggerUI();
+app.UseSwaggerUI(config =>
+{
+    config.RoutePrefix = string.Empty;
+    config.SwaggerEndpoint("swagger/v1/swagger.json", "BulletianBoard API");
+});
 app.UseRouting();
 app.UseHttpsRedirection();
 app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseApiVersioning();
 app.UseEndpoints(endpoints => 
 {
     endpoints.MapControllers();
