@@ -6,4 +6,6 @@ C#, MSSQL, ASP.NET, CQRS, MediatR, xUnit, JWT, DI, EntityFramework, Swagger, Ide
 - CRUD  
 - Поиск по фильтрам  
 - Добавить в избранное  
-- Работа с Файлами  
+- Работа с Файлами
+- Коментарии под объявлении
+- Чат покупателя и продовца
